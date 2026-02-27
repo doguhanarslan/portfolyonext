@@ -1,0 +1,3 @@
+# Cloudflare Pages redirects
+# All routes are statically pre-rendered by Next.js export
+# 404.html handles non-existent routes automatically

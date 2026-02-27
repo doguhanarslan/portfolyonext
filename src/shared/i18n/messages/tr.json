@@ -1,0 +1,60 @@
+{
+  "nav": {
+    "home": "Ana Sayfa",
+    "about": "Hakkımda",
+    "skills": "Yetkinlikler",
+    "work": "Projeler",
+    "contact": "İletişim"
+  },
+  "hero": {
+    "greeting": "Merhaba, ben",
+    "name": "Doğuhan Arslan",
+    "title": "Yazılım Mimarı & Full-Stack Geliştirici",
+    "subtitle": ".NET, Flutter ve Clean Architecture ile ölçeklenebilir sistemler inşa ediyorum.",
+    "cta_work": "Projelerimi Gör",
+    "cta_cv": "CV İndir",
+    "scroll": "Keşfet"
+  },
+  "about": {
+    "title": "Hakkımda",
+    "subtitle": "Uzmanlık & Deneyim",
+    "summary": "Yazılım mimarisi ve tam yığın geliştirme alanında uzmanlaşmış bir yazılım mühendisiyim. .NET, Flutter ve Clean Architecture odaklı çalışmalarımla çok kiracılı SaaS platformları ve yapay zeka entegreli mobil uygulamalar geliştiriyorum.",
+    "experience_title": "Deneyim",
+    "skills_title": "Yetkinlikler"
+  },
+  "skills": {
+    "title": "Yetkinlikler",
+    "subtitle": "Teknoloji yığınım ve hakimiyet seviyelerim"
+  },
+  "projects": {
+    "title": "Öne Çıkan Projeler",
+    "subtitle": "Seçilmiş projeler ve vaka çalışmaları",
+    "view_case_study": "Detaylı İncele",
+    "all_projects": "Tüm Projeler"
+  },
+  "contact": {
+    "title": "İletişime Geçin",
+    "subtitle": "Aklınızda bir proje mi var? Birlikte harika bir şeyler inşa edelim.",
+    "email_cta": "E-posta Gönder",
+    "or": "veya"
+  },
+  "footer": {
+    "copyright": "© 2026 Doğuhan Arslan. Tüm hakları saklıdır.",
+    "built_with": "Next.js & Tailwind CSS ile geliştirildi"
+  },
+  "case_study": {
+    "challenge": "Problem",
+    "solution": "Çözüm",
+    "tech_stack": "Teknoloji Yığını",
+    "metrics": "Temel Metrikler",
+    "back": "← Projelere Dön"
+  },
+  "common": {
+    "live": "Canlı",
+    "development": "Geliştirmede",
+    "completed": "Tamamlandı",
+    "web": "Web",
+    "mobile": "Mobil",
+    "desktop": "Masaüstü"
+  }
+}

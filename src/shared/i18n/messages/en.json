@@ -1,0 +1,60 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "skills": "Proficiency",
+    "work": "Work",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Hi, I'm",
+    "name": "Doğuhan Arslan",
+    "title": "Software Architect & Full-Stack Developer",
+    "subtitle": "Building scalable systems with .NET, Flutter, and Clean Architecture.",
+    "cta_work": "View Work",
+    "cta_cv": "Download CV",
+    "scroll": "Explore"
+  },
+  "about": {
+    "title": "About Me",
+    "subtitle": "Expertise & Experience",
+    "summary": "I'm a software engineer specializing in software architecture and full-stack development. Focused on .NET, Flutter, and Clean Architecture, I build multi-tenant SaaS platforms and AI-integrated mobile applications.",
+    "experience_title": "Experience",
+    "skills_title": "Skills"
+  },
+  "skills": {
+    "title": "Proficiency",
+    "subtitle": "My tech stack and expertise levels"
+  },
+  "projects": {
+    "title": "Featured Work",
+    "subtitle": "Selected projects and case studies",
+    "view_case_study": "View Case Study",
+    "all_projects": "All Projects"
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "subtitle": "Have a project in mind? Let's build something great together.",
+    "email_cta": "Send Email",
+    "or": "or"
+  },
+  "footer": {
+    "copyright": "© 2026 Doğuhan Arslan. All rights reserved.",
+    "built_with": "Built with Next.js & Tailwind CSS"
+  },
+  "case_study": {
+    "challenge": "The Challenge",
+    "solution": "The Solution",
+    "tech_stack": "Tech Stack",
+    "metrics": "Key Metrics",
+    "back": "← Back to Projects"
+  },
+  "common": {
+    "live": "Live",
+    "development": "In Development",
+    "completed": "Completed",
+    "web": "Web",
+    "mobile": "Mobile",
+    "desktop": "Desktop"
+  }
+}
