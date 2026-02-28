@@ -86,14 +86,22 @@ body {
 
 .glass {
   background: var(--glass-bg);
-  backdrop-filter: blur(12px) saturate(180%);
   border: 1px solid var(--glass-border);
 }
 
 .glass-strong {
   background: var(--glass-bg-strong);
-  backdrop-filter: blur(20px) saturate(200%);
   border: 1px solid var(--glass-border);
+}
+
+/* Backdrop blur only on desktop — GPU-heavy on mobile scroll */
+@media (min-width: 768px) {
+  .glass {
+    backdrop-filter: blur(12px) saturate(180%);
+  }
+  .glass-strong {
+    backdrop-filter: blur(20px) saturate(200%);
+  }
 }
 
 /* ── Snap scroll (desktop only) ── */
@@ -136,6 +144,7 @@ body {
   min-height: auto;
   padding-top: 1rem;
   padding-bottom: 1rem;
+  contain: layout style paint;
 }
 
 .mobile-section-hero {
@@ -191,6 +200,13 @@ body {
     linear-gradient(90deg, var(--color-surface) 1px, transparent 1px);
   background-size: 60px 60px;
   opacity: 0.4;
+}
+
+/* Hide tech-grid on mobile — fixed background causes repaint on scroll */
+@media (max-width: 767px) {
+  .tech-grid {
+    display: none;
+  }
 }
 
 /* Mouse-following accent glow (10%) */

@@ -17,7 +17,7 @@ export function SkillCard({ category, locale, index }: SkillCardProps) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.4, delay: index * 0.08 }}
-      className="group rounded-xl bg-white/70 dark:bg-surface/50 border border-zinc-200/80 dark:border-zinc-700/30 p-4 hover:shadow-lg dark:hover:shadow-black/30 transition-all duration-300 backdrop-blur-sm"
+      className="group rounded-xl bg-white/90 dark:bg-surface/70 border border-zinc-200/80 dark:border-zinc-700/30 p-4 sm:hover:shadow-lg sm:dark:hover:shadow-black/30 transition-shadow duration-300 md:backdrop-blur-sm"
     >
       <div className={`h-0.5 w-10 rounded-full bg-gradient-to-r ${category.gradient} mb-3`} />
 

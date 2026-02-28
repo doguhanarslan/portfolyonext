@@ -89,9 +89,9 @@ export function Header({ locale }: HeaderProps) {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1], delay: 0.2 }}
             className={cn(
-              'flex items-center justify-between px-5 py-3 transition-all duration-500',
+              'flex items-center justify-between px-5 py-3 transition-[background-color,box-shadow] duration-300',
               isScrolled
-                ? 'glass-strong shadow-md shadow-black/5 dark:shadow-black/30'
+                ? 'bg-white/90 dark:bg-background/90 shadow-md shadow-black/5 dark:shadow-black/30'
                 : 'bg-transparent'
             )}
           >

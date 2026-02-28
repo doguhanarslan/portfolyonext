@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { cn } from '@/shared/lib/utils';
+import { useIsMobile } from '@/shared/hooks/useMediaQuery';
 import type { ProficiencyItem } from '@/core/types';
 
 interface SkillBarProps {
@@ -12,6 +13,8 @@ interface SkillBarProps {
 const TOTAL_SEGMENTS = 10;
 
 export function SkillBar({ skill, delay }: SkillBarProps) {
+  const isMobile = useIsMobile();
+
   return (
     <div className="flex items-center gap-3 group">
       <span className="w-[120px] sm:w-[140px] shrink-0 text-[13px] font-medium text-zinc-700 dark:text-zinc-300 truncate">
@@ -21,6 +24,21 @@ export function SkillBar({ skill, delay }: SkillBarProps) {
       <div className="flex-1 flex gap-[3px]">
         {Array.from({ length: TOTAL_SEGMENTS }, (_, i) => {
           const isFilled = i < skill.level;
+
+          if (isMobile) {
+            return (
+              <div
+                key={i}
+                className={cn(
+                  'h-[10px] flex-1 rounded-[2px]',
+                  isFilled
+                    ? 'bg-accent'
+                    : 'bg-zinc-200 dark:bg-surface/60'
+                )}
+              />
+            );
+          }
+
           return (
             <motion.div
               key={i}
@@ -33,7 +51,7 @@ export function SkillBar({ skill, delay }: SkillBarProps) {
                 ease: [0.25, 0.1, 0.25, 1],
               }}
               className={cn(
-                'h-[10px] flex-1 rounded-[2px] origin-left transition-shadow duration-300',
+                'h-[10px] flex-1 rounded-[2px] origin-left',
                 isFilled
                   ? 'bg-accent group-hover:shadow-[0_0_8px_rgba(230,46,92,0.4)]'
                   : 'bg-zinc-200 dark:bg-surface/60'

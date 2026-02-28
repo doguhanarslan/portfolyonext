@@ -31,7 +31,7 @@ export function ProjectCard({ project, locale, index, viewLabel }: ProjectCardPr
       transition={{ duration: 0.4, delay: index * 0.12 }}
     >
       <Link href={`/${locale}/projects/${project.slug}/`}>
-        <div className="group relative h-full rounded-2xl bg-white/70 dark:bg-surface/50 border border-zinc-200/80 dark:border-zinc-700/30 overflow-hidden hover:shadow-xl dark:hover:shadow-black/30 transition-all duration-300 hover:border-accent/30 dark:hover:border-accent/30 backdrop-blur-sm">
+        <div className="group relative h-full rounded-2xl bg-white/90 dark:bg-surface/70 border border-zinc-200/80 dark:border-zinc-700/30 overflow-hidden sm:hover:shadow-xl sm:dark:hover:shadow-black/30 transition-[shadow,border-color] duration-300 sm:hover:border-accent/30 sm:dark:hover:border-accent/30 md:backdrop-blur-sm">
           <div className="relative w-full h-36 sm:h-40 bg-zinc-100 dark:bg-surface overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-accent-secondary/20 flex items-center justify-center">
               <PlatformIcon size={32} className="text-zinc-300 dark:text-zinc-600" />
@@ -41,7 +41,7 @@ export function ProjectCard({ project, locale, index, viewLabel }: ProjectCardPr
                 src={project.image}
                 alt={project.title}
                 fill
-                className="object-cover group-hover:scale-105 transition-transform duration-500"
+                className="object-cover sm:group-hover:scale-105 sm:transition-transform sm:duration-500"
               />
             )}
             <div className="absolute top-2.5 right-2.5">

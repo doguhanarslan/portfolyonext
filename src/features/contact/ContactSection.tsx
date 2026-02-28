@@ -53,7 +53,7 @@ export function ContactSection({ dict }: ContactSectionProps) {
                     href={link.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group flex items-center gap-2 px-4 py-2.5 rounded-xl border border-zinc-200/80 dark:border-zinc-700/30 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:border-zinc-300 dark:hover:border-zinc-600/50 bg-white/30 dark:bg-surface/30 transition-all"
+                    className="group flex items-center gap-2 px-4 py-2.5 rounded-xl border border-zinc-200/80 dark:border-zinc-700/30 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:border-zinc-300 dark:hover:border-zinc-600/50 bg-white/90 dark:bg-surface/50 transition-colors"
                   >
                     {Icon && <Icon size={18} />}
                     <span className="text-sm font-medium">{link.name}</span>
