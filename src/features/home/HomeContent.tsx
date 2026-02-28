@@ -7,6 +7,7 @@ import { SkillsSection } from '@/features/skills/SkillsSection';
 import { ProjectsSection } from '@/features/projects/ProjectsSection';
 import { ContactSection } from '@/features/contact/ContactSection';
 import { Footer } from '@/shared/components/layout/Footer';
+import { useIsMobile } from '@/shared/hooks/useMediaQuery';
 import type { Locale } from '@/core/types';
 import type { Dictionary } from '@/shared/i18n/getDictionary';
 
@@ -24,6 +25,7 @@ export function HomeContent({ locale, dict }: HomeContentProps) {
   const currentIndex = useRef(0);
   const accumulatedDelta = useRef(0);
   const deltaTimer = useRef<ReturnType<typeof setTimeout>>(undefined);
+  const isMobile = useIsMobile();
 
   const sectionCount = 5;
 
@@ -45,14 +47,19 @@ export function HomeContent({ locale, dict }: HomeContentProps) {
     }, SCROLL_COOLDOWN);
   }, []);
 
+  /* Hide body overflow only on desktop (snap mode) */
   useEffect(() => {
+    if (isMobile) return;
     document.body.style.overflow = 'hidden';
     return () => {
       document.body.style.overflow = '';
     };
-  }, []);
+  }, [isMobile]);
 
+  /* Desktop-only wheel handler for snap scrolling */
   useEffect(() => {
+    if (isMobile) return;
+
     const container = containerRef.current;
     if (!container) return;
 
@@ -76,9 +83,12 @@ export function HomeContent({ locale, dict }: HomeContentProps) {
 
     container.addEventListener('wheel', handleWheel, { passive: false });
     return () => container.removeEventListener('wheel', handleWheel);
-  }, [scrollToIndex]);
+  }, [scrollToIndex, isMobile]);
 
+  /* Desktop-only touch handler for snap scrolling */
   useEffect(() => {
+    if (isMobile) return;
+
     const container = containerRef.current;
     if (!container) return;
 
@@ -103,7 +113,7 @@ export function HomeContent({ locale, dict }: HomeContentProps) {
       container.removeEventListener('touchstart', handleTouchStart);
       container.removeEventListener('touchend', handleTouchEnd);
     };
-  }, [scrollToIndex]);
+  }, [scrollToIndex, isMobile]);
 
   useEffect(() => {
     const hash = window.location.hash;
@@ -114,29 +124,40 @@ export function HomeContent({ locale, dict }: HomeContentProps) {
     const idx = sections.indexOf(id);
     if (idx === -1) return;
 
+    if (isMobile) {
+      const timer = setTimeout(() => {
+        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+      }, 250);
+      return () => clearTimeout(timer);
+    }
+
     const timer = setTimeout(() => scrollToIndex(idx), 250);
     return () => clearTimeout(timer);
-  }, [scrollToIndex]);
+  }, [scrollToIndex, isMobile]);
 
   return (
-    <div className="snap-container" id="snap-container" ref={containerRef}>
-      <section id="home" className="snap-section">
+    <div
+      className={isMobile ? 'mobile-scroll-container' : 'snap-container'}
+      id="snap-container"
+      ref={containerRef}
+    >
+      <section id="home" className={isMobile ? 'mobile-section mobile-section-hero' : 'snap-section'}>
         <HeroSection dict={dict} />
       </section>
 
-      <section id="about" className="snap-section bg-white/80 dark:bg-transparent">
+      <section id="about" className={`${isMobile ? 'mobile-section' : 'snap-section'} bg-white/80 dark:bg-transparent`}>
         <AboutSection locale={locale} dict={dict} />
       </section>
 
-      <section id="skills" className="snap-section bg-white/60 dark:bg-surface/40">
+      <section id="skills" className={`${isMobile ? 'mobile-section' : 'snap-section'} bg-white/60 dark:bg-surface/40`}>
         <SkillsSection locale={locale} dict={dict} />
       </section>
 
-      <section id="work" className="snap-section bg-white/80 dark:bg-transparent">
+      <section id="work" className={`${isMobile ? 'mobile-section' : 'snap-section'} bg-white/80 dark:bg-transparent`}>
         <ProjectsSection locale={locale} dict={dict} />
       </section>
 
-      <section id="contact" className="snap-section bg-white/60 dark:bg-surface/40">
+      <section id="contact" className={`${isMobile ? 'mobile-section' : 'snap-section'} bg-white/60 dark:bg-surface/40`}>
         <ContactSection dict={dict} />
         <Footer dict={dict} />
       </section>

@@ -17,7 +17,7 @@ interface AboutSectionProps {
 
 export function AboutSection({ locale, dict }: AboutSectionProps) {
   return (
-    <div className="flex-1 flex items-center py-16 sm:py-20">
+    <div className="flex-1 flex items-center py-12 sm:py-20">
       <Container>
         <FadeIn>
           <SectionHeading title={dict.about.title} subtitle={dict.about.subtitle} className="mb-10" />

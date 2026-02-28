@@ -63,7 +63,7 @@ export function HeroSection({ dict }: HeroSectionProps) {
 
           <motion.h1
             variants={itemVariants}
-            className="mt-2 text-5xl sm:text-7xl lg:text-8xl font-black tracking-tight leading-[1.05]"
+            className="mt-2 text-4xl sm:text-7xl lg:text-8xl font-black tracking-tight leading-[1.05]"
           >
             <span className="gradient-text">{dict.hero.name}</span>
           </motion.h1>
@@ -105,7 +105,7 @@ export function HeroSection({ dict }: HeroSectionProps) {
             ))}
           </motion.div>
 
-          <motion.div variants={itemVariants} className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <motion.div variants={itemVariants} className="mt-6 sm:mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
             <Button
               variant="primary"
               size="lg"

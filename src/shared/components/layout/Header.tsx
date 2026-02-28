@@ -82,7 +82,39 @@ export function Header({ locale }: HeaderProps) {
   return (
     <>
       <header className="fixed top-0 left-0 right-0 z-50 pointer-events-none">
-        <div className="flex justify-center pt-4 sm:pt-5 px-4">
+        {/* Mobile header: full-width bar */}
+        <div className="md:hidden pointer-events-auto">
+          <motion.div
+            initial={{ y: -60, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1], delay: 0.2 }}
+            className={cn(
+              'flex items-center justify-between px-5 py-3 transition-all duration-500',
+              isScrolled
+                ? 'glass-strong shadow-md shadow-black/5 dark:shadow-black/30'
+                : 'bg-transparent'
+            )}
+          >
+            <a
+              href="#home"
+              onClick={(e) => handleNavClick(e, '#home')}
+              className="text-xl font-extrabold"
+            >
+              <span className="gradient-text">DA</span>
+            </a>
+
+            <button
+              onClick={() => setIsMenuOpen(true)}
+              className="w-10 h-10 flex items-center justify-center rounded-xl hover:bg-zinc-100/50 dark:hover:bg-surface/50 transition-colors cursor-pointer"
+              aria-label="Open menu"
+            >
+              <Menu size={22} className="text-zinc-600 dark:text-zinc-300" />
+            </button>
+          </motion.div>
+        </div>
+
+        {/* Desktop header: centered floating pill */}
+        <div className="hidden md:flex justify-center pt-5 px-4">
           <motion.div
             initial={{ y: -80, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -102,9 +134,9 @@ export function Header({ locale }: HeaderProps) {
               <span className="gradient-text">DA</span>
             </a>
 
-            <div className="hidden md:block w-px h-5 bg-zinc-300/40 dark:bg-zinc-600/40" />
+            <div className="w-px h-5 bg-zinc-300/40 dark:bg-zinc-600/40" />
 
-            <nav className="hidden md:flex items-center px-1.5">
+            <nav className="flex items-center px-1.5">
               {navItems.map((item) => {
                 const isActive = hasSections && activeSection === item.id;
                 return (
@@ -146,20 +178,12 @@ export function Header({ locale }: HeaderProps) {
               })}
             </nav>
 
-            <div className="hidden md:block w-px h-5 bg-zinc-300/40 dark:bg-zinc-600/40" />
+            <div className="w-px h-5 bg-zinc-300/40 dark:bg-zinc-600/40" />
 
-            <div className="hidden md:flex items-center px-1">
+            <div className="flex items-center px-1">
               <LocaleSwitcher locale={locale} />
               <ThemeToggle />
             </div>
-
-            <button
-              onClick={() => setIsMenuOpen(true)}
-              className="md:hidden px-3 py-2.5 rounded-xl hover:bg-zinc-100/50 dark:hover:bg-surface/50 transition-colors cursor-pointer"
-              aria-label="Open menu"
-            >
-              <Menu size={20} className="text-zinc-600 dark:text-zinc-300" />
-            </button>
           </motion.div>
         </div>
       </header>
